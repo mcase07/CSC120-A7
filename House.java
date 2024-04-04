@@ -17,6 +17,18 @@ public class House extends Building {
     System.out.println("You have built a house: 🏠");
   }
 
+  public House(){
+    this.name = "Chapin";
+    this.address = "";
+    this.nFloors = 4;
+
+    this.hasElevator = !hasElevator;
+    this.hasDiningRoom = !hasDiningRoom;
+    this.residents = new ArrayList<String>();
+
+    System.out.println("You have built a house: 🏠");
+  }
+
   /**
    * Checks if there's an elevator
    * @return T/F does the house have an elevator?
@@ -106,6 +118,13 @@ public class House extends Building {
     }
   }
 
+  public void moveIn(String name1, String name2){
+    if (!residents.contains(name1) && !residents.contains(name2)){
+        residents.add(name1);
+        residents.add(name2);
+    }
+  }
+
   /**
    * Moves someone out of a house if they live there
    * @param name name of the person moving out
@@ -159,6 +178,9 @@ public class House extends Building {
 
     myHouse.enter();
     myHouse.goToFloor(3);
+
+    myHouse.moveIn("Pria", "Jonna");
+    myHouse.outNResidents();
     
     // myHouse.outNResidents();
     // myHouse.moveIn("Pria");

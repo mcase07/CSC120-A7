@@ -17,6 +17,20 @@ public class Cafe extends Building {
         System.out.println("You have built a cafe: ☕");
     }
 
+    public Cafe(){
+        this.name = "Smith Cafe";
+        this.address = "1 Green St";
+        this.nFloors = 2;
+
+        this.nCoffeOunces = 100;
+        this.nSugarPackets = 200;
+        this.nCreams = 200;
+        this.nCups = 50;
+
+        System.out.println("You have built a cafe: ☕");
+
+    }
+
     
     /**
      * Checks the stock of the cafe 
@@ -64,6 +78,22 @@ public class Cafe extends Building {
         
     }
 
+    public void sellCoffee(){
+        if (16 > this.nCoffeOunces || 2 > this.nSugarPackets || 2 > this.nCreams || this.nCups < 0){
+            restock(100, 200, 200, 50);
+            this.nCoffeOunces -= 16;
+            this.nSugarPackets -= 2;
+            this.nCreams -= 2;
+            this.nCups -= 1;
+        }
+        else {
+            this.nCoffeOunces -= 16;
+            this.nSugarPackets -= 2;
+            this.nCreams -= 2;
+            this.nCups -= 1;
+        }
+    }
+
     public void goToFloor(int floorNum) {
         if (this.activeFloor == -1) {
             throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
@@ -84,8 +114,12 @@ public class Cafe extends Building {
         System.out.println(CC);
         CC.showOptions();
         CC.enter();
-        CC.goToFloor(1);
+        // CC.goToFloor(1);
+        CC.sellCoffee();
+        System.out.println(CC.getStock());
 
+        Cafe coffeeHouse = new Cafe();
+        System.out.println(coffeeHouse);
         // System.out.println(CC.getStock());
         // CC.sellCoffee(12, 2, 2);
         // System.out.println(CC.getStock());

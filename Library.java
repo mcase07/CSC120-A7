@@ -14,6 +14,16 @@ public class Library extends Building {
     System.out.println("You have built a library: 📖");
   }
 
+  public Library(){
+    this.name = "Neilson";
+    this.address = "1 Neilson Way";
+    this.nFloors = 4;
+
+    this.collection = new Hashtable<String, Boolean>();
+
+    System.out.println("You have built a library: 📖");
+  }
+
   /**
    * Adds a title to the collection
    * @param title title of the book being added 
@@ -83,6 +93,13 @@ public class Library extends Building {
     return false;
   }
 
+  public boolean containsTitle(String title1, String title2, String title3){
+    if(this.collection.containsKey(title1) && this.collection.containsKey(title2) && this.collection.containsKey(title3)){
+        return true;
+    }
+    return false;
+  }
+
   /**
    * Checks if a title is available 
    * @param title title of the book
@@ -117,27 +134,32 @@ public class Library extends Building {
 
   public static void main(String[] args) {
     Library Neilson = new Library("Neislon", "6 Neilson Way", 4);
-    System.out.println(Neilson);
-    Neilson.showOptions();
+    Library Neilson2 = new Library();
+    // System.out.println(Neilson);
+    // Neilson.showOptions();
 
 
     Neilson.addTitle("Green Eggs & Ham");
 
-    Neilson.removeTitle("Calvin & Hobbes");
-    Neilson.removeTitle("Green Eggs & Ham");
+    // Neilson.removeTitle("Calvin & Hobbes");
+    // Neilson.removeTitle("Green Eggs & Ham");
 
-    System.out.println(Neilson.containsTitle("Green Eggs & Ham"));
-    System.out.println(Neilson.isAvailable("Green Eggs & Ham"));
+    // System.out.println(Neilson.containsTitle("Green Eggs & Ham"));
+    // System.out.println(Neilson.isAvailable("Green Eggs & Ham"));
 
-    Neilson.returnBook("Green Eggs & Ham"); 
-    Neilson.checkOut("Green Eggs & Ham");
+    // Neilson.returnBook("Green Eggs & Ham"); 
+    // Neilson.checkOut("Green Eggs & Ham");
     
     Neilson.addTitle("Calvin & Hobbes");
-    Neilson.printCollection();
+    Neilson.addTitle("Pride & Prejudice");
 
-    Neilson.enter();
-    Neilson.goToFloor(2);
-    Neilson.goToFloor(4);
+    System.out.println(Neilson.containsTitle("Green Eggs & Ham", "Calvin & Hobbes", "Pride & Prejudice"));
+    // Neilson.containsTitle("Green Eggs & Ham", "Calvin & Hobbes", "Pride & Prejudice");
+    // Neilson.printCollection();
+
+    // Neilson.enter();
+    // Neilson.goToFloor(2);
+    // Neilson.goToFloor(4);
   }
 
 }
