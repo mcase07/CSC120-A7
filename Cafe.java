@@ -6,6 +6,12 @@ public class Cafe extends Building {
     private int nCreams;
     private int nCups;
 
+    /**
+     * Constructor for the Cafe class
+     * @param name name of the cafe
+     * @param address address of the cafe
+     * @param nFloors number of floors
+     */
     public Cafe(String name, String address, int nFloors) {
         super(name, address, nFloors);
 
@@ -19,7 +25,7 @@ public class Cafe extends Building {
 
     public Cafe(){
         this.name = "Smith Cafe";
-        this.address = "1 Green St";
+        this.address = "1 Green St Northampton, MA 01063";
         this.nFloors = 2;
 
         this.nCoffeOunces = 100;
@@ -94,6 +100,10 @@ public class Cafe extends Building {
         }
     }
 
+    /**
+   * Allows no movement between floors
+   * @param floorNum floor number
+   */
     public void goToFloor(int floorNum) {
         if (this.activeFloor == -1) {
             throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
@@ -103,8 +113,8 @@ public class Cafe extends Building {
 
 
     /**
-     * Gives a readable list of all the methods the subclass can perform
-     */
+   * Overriding parent method to show all methods in Cafe class
+   */
     public void showOptions() {
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + sellCoffee(size, sugars, creams)\n + restock(nCoffeOunces, nSugarPackets, nCreams, nCups)\n");
     }

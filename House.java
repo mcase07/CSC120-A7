@@ -6,6 +6,14 @@ public class House extends Building {
   private boolean hasDiningRoom;
   private ArrayList<String> residents;
 
+  /**
+   * Constructor for House class
+   * @param name name of the house
+   * @param address address of the house
+   * @param nFloors number of floors
+   * @param hasElevator boolean if the house has an elevator
+   * @param hasDiningRoom boolean if the house has a dining room 
+   */
   public House(String name, String address, int nFloors, 
               boolean hasElevator, boolean hasDiningRoom) { //don't need to pass in an empty arrayList
     super(name, address, nFloors); // calling parent's attribute; is a Building
@@ -17,9 +25,13 @@ public class House extends Building {
     System.out.println("You have built a house: 🏠");
   }
 
+
+  /**
+   * Default constructor for House, Chapin
+   */
   public House(){
-    this.name = "Chapin";
-    this.address = "";
+    this.name = "Chapin House";
+    this.address = "1 Chapin Way Northampton, MA 01063";
     this.nFloors = 4;
 
     this.hasElevator = !hasElevator;
@@ -118,6 +130,11 @@ public class House extends Building {
     }
   }
 
+  /**
+   * Moves in multiple people at once into a house
+   * @param name1 name of the first person moving in
+   * @param name2 name of the second person moving in 
+   */
   public void moveIn(String name1, String name2){
     if (!residents.contains(name1) && !residents.contains(name2)){
         residents.add(name1);
@@ -137,6 +154,10 @@ public class House extends Building {
     return name + "does not live here";
   }
 
+  /**
+   * Moving between non-adjacents floors if there's an elevator
+   * @param floorNum floor number
+   */
   public void goToFloor(int floorNum) {
     if (!this.hasElevator){
         if (this.activeFloor == -1) {
@@ -164,8 +185,8 @@ public class House extends Building {
 }
 
   /**
-  * Gives a readable list of all the methods the subclass can perform
-  */
+   * Overriding parent method to show all methods in House class
+   */
   public void showOptions() {
     System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + moveIn(name)\n + moveOut(name)\n + isResident(person)\n");
 } 

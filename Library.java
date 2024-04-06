@@ -6,6 +6,12 @@ public class Library extends Building {
 
   private Hashtable<String, Boolean> collection;
 
+  /**
+   * constructor for the class Library
+   * @param name name of the library
+   * @param address address of the library
+   * @param nFloors number of floors in the library
+   */
   public Library(String name, String address, int nFloors) {
     super(name, address, nFloors);
 
@@ -14,9 +20,12 @@ public class Library extends Building {
     System.out.println("You have built a library: 📖");
   }
 
+  /**
+   * Default constructor for Library, Neilson
+   */
   public Library(){
-    this.name = "Neilson";
-    this.address = "1 Neilson Way";
+    this.name = "Neilson Library";
+    this.address = "1 Neilson Way Northampton, MA 01063";
     this.nFloors = 4;
 
     this.collection = new Hashtable<String, Boolean>();
@@ -93,6 +102,13 @@ public class Library extends Building {
     return false;
   }
 
+  /**
+   * Checks if three titles are in the collection
+   * @param title1 title of the first book
+   * @param title2 title of the second book 
+   * @param title3 title of the third book
+   * @return boolean true or false if all three are in the collection 
+   */
   public boolean containsTitle(String title1, String title2, String title3){
     if(this.collection.containsKey(title1) && this.collection.containsKey(title2) && this.collection.containsKey(title3)){
         return true;
@@ -128,6 +144,9 @@ public class Library extends Building {
     }
   }
 
+  /**
+   * Overriding parent method to show all methods in Library class
+   */
   public void showOptions() {
     System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + addTitle(title)\n + removeTitle(title)\n + checkOut(title)\n + returnBook(title)\n + containsTitle(title)\n + isAvailable(title)\n + printCollection()\n");
 }
